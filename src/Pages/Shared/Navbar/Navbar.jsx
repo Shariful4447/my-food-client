@@ -1,20 +1,24 @@
 
 
 const Navbar = () => {
+
+    const navOptions = <>
+        <li><a>HOME</a></li>
+        <li><a href="">CONTACT US</a></li>
+        <li><a>DASHBOARD</a></li>
+        <li><a href="">OUR MENU</a></li>
+        <li><a>OUR SHOP</a></li>
+    </>
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-2xl bg-black text-white">
                 <div className="flex-1">
                     <a className="btn btn-ghost text-xl">daisyUI</a>
                 </div>
                 <div className="flex-none">
                     <ul className="menu menu-horizontal px-1">
-                        <li><a>HOME</a></li>
-                        <li><a href="">CONTACT US</a></li>
-                        <li><a>DASHBOARD</a></li>
-                        <li><a href="">OUR MENU</a></li>
-                        <li><a>OUR SHOP</a></li>
                         
+                        {navOptions}
                         
                     </ul>
                     <div>
