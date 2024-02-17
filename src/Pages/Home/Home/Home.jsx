@@ -1,9 +1,12 @@
-import ContactPhone from "../../ContactPhone/ContactPhone";
+
 import About from "../About/About";
 import Banner from "../Banner/Banner";
 import Category from "../Category/Category";
+import ChefRecomendations from "../ChefRecomendations/ChefRecomendations";
+import ContactPhone from "../ContactPhone/ContactPhone";
 import Featured from "../Featured/Featured";
 import PopularMenu from "../PopularMenu/PopularMenu";
+import Testimonials from "../Testimonials/Testimonials";
 
 
 const Home = () => {
@@ -14,7 +17,9 @@ const Home = () => {
             <About></About>
             <PopularMenu></PopularMenu>
             <ContactPhone></ContactPhone>
+            <ChefRecomendations></ChefRecomendations>
             <Featured></Featured>
+            <Testimonials></Testimonials>
         </div>
     );
 };
