@@ -1,4 +1,3 @@
-import backImage from '../../../assets/home/chef-service.jpg'
 
 const About = () => {
     return (

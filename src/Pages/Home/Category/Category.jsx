@@ -9,16 +9,20 @@ import slide3 from '../../../assets/home/slide3.jpg';
 import slide4 from '../../../assets/home/slide4.jpg';
 import slide5 from '../../../assets/home/slide5.jpg';
 import { Link } from "react-router-dom";
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 // import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 
 const Category = () => {
     return (
        <section className="mt-10 mb-10">
-            <div className="mx-auto text-center md:w-4/12 my-8">
-                <h2 className="text-yellow-600 mb-2">From 11.00am to 10.00pm</h2>
-                <h2 className="text-3xl uppercase border-y-4 py-4">Order Online</h2>
-            </div>
+            <SectionTitle
+            subHeading = {"From 11.00am to 10.00pm"}
+            heading = {"Order Online"}
+            >
+                
+            </SectionTitle>
+
 
             <Marquee pauseOnHover={true} speed={100}>
                 <Link className="mr-6" to="/">
