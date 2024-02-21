@@ -14,6 +14,9 @@ const MenuCategory = ({items, title, img}) => {
                     ></MenuItem>)
                 }
             </div>
+            <div className="mx-auto text-center mt-5">
+                <button className="btn btn-outline border-0 border-b-4">See Full Menu</button>
+            </div>
             
         </div>
     );
