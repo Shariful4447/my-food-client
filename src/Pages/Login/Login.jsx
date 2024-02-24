@@ -3,11 +3,15 @@ import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GoogleIcon from '@mui/icons-material/Google';
-
+import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { Link } from 'react-router-dom';
 import login from '../../assets/others/authentication2.png'
+import { useEffect } from 'react';
 
 const Login = () => {
+    useEffect( ()=>{
+        loadCaptchaEnginge(6);
+    },[])
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -27,7 +31,7 @@ const Login = () => {
             <div className="hero min-h-1/2 bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     
-                    <div className="card shrink-0 w-full max-w-md h-[600px] shadow-2xl bg-base-100 m-20">
+                    <div className="card shrink-0 w-full max-w-md h-[700px] shadow-2xl bg-base-100 m-20">
                         <h2 className='text-center text-4xl font-bold mt-10'>Login Here</h2>
                         <form onSubmit={handleLogin}  className="card-body">
                             <div className="form-control">
@@ -37,13 +41,21 @@ const Login = () => {
                             <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Password</span>
-                            </label>
-                            <input type="password" name="password" placeholder="password" className="input input-bordered" required />
-                            <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                            </label>
+                                <label className="label">
+                                    <span className="label-text">Password</span>
+                                </label>
+                                <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                                <label className="label">
+                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                </label>
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">
+                                    <LoadCanvasTemplate />
+                                    </span>
+                                </label>
+                                <input type="password" name="password" placeholder="please put the text you see in the captcha" className="input input-bordered" required />
                             </div>
                             <div className="form-control mt-6">
                             <button className="btn btn-primary">Login</button>
