@@ -5,17 +5,31 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import GoogleIcon from '@mui/icons-material/Google';
 
 import { Link } from 'react-router-dom';
-import login from '../../assets/others/authentication1.png'
+import login from '../../assets/others/authentication2.png'
 
 const Login = () => {
+    const handleLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+        // signIn(email, password)
+        // .then(result => {
+        //     const user = result.user;
+        //     console.log(user);
+        // })
+        // .catch(error => console.log(error))
+    }
     return (
-<div>
+        <div>
             <div className="hero min-h-1/2 bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     
                     <div className="card shrink-0 w-full max-w-md h-[600px] shadow-2xl bg-base-100 m-20">
                         <h2 className='text-center text-4xl font-bold mt-10'>Login Here</h2>
-                        <form  className="card-body">
+                        <form onSubmit={handleLogin}  className="card-body">
                             <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
