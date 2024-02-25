@@ -4,9 +4,13 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GoogleIcon from '@mui/icons-material/Google';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
 // import Swal from "sweetalert2";
 
 const SignUp = () => {
+    const {createUser} = useContext(AuthContext);
     const handleRegister = event =>{
         event.preventDefault();
         const form = event.target;
@@ -14,21 +18,21 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, email, password);
-        // createUser(email, password)
-        // .then(result => {
-        //     const user = result.user;
-        //     console.log(user);
-        //     if(user.uid){
-        //         Swal.fire(
-        //             "Success!",
-        //             "User Created Success",
-        //             "success"
-        //      )
+        createUser(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            if(user.uid){
+                Swal.fire(
+                    "Success!",
+                    "User Created Success",
+                    "success"
+             )
 
-        //     }
-        // })
+            }
+        })
         
-        // .catch(error=>console.log(error));
+        .catch(error=>console.log(error));
         }
     return (
         <div>

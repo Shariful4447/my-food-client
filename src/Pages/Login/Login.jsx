@@ -3,14 +3,17 @@ import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GoogleIcon from '@mui/icons-material/Google';
-import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { Link } from 'react-router-dom';
 import login from '../../assets/others/authentication2.png'
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
     const captchaRef = useRef(null);
     const[disabled, setDisabled] = useState(true);
+
+    const {signIn} = useContext(AuthContext);
 
     useEffect( ()=>{
         loadCaptchaEnginge(6);
@@ -33,12 +36,12 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
-        // signIn(email, password)
-        // .then(result => {
-        //     const user = result.user;
-        //     console.log(user);
-        // })
-        // .catch(error => console.log(error))
+        signIn(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => console.log(error))
     }
     return (
         <div>
