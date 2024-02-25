@@ -4,16 +4,21 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GoogleIcon from '@mui/icons-material/Google';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../../assets/others/authentication2.png'
 import { useContext, useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const captchaRef = useRef(null);
     const[disabled, setDisabled] = useState(true);
 
     const {signIn} = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     useEffect( ()=>{
         loadCaptchaEnginge(6);
@@ -40,6 +45,13 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
+            if(user.uid){
+                Swal.fire(
+                    "Success!",
+                    "User Created Success",
+                    "success"
+             )}
+             navigate(from, {replace: true})
         })
         .catch(error => console.log(error))
     }
