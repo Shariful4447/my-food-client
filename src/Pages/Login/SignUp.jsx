@@ -3,21 +3,23 @@ import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GoogleIcon from '@mui/icons-material/Google';
-import { Link } from 'react-router-dom';
-import Swal from 'sweetalert2';
+import { Link, useNavigate} from 'react-router-dom';
+//import Swal from 'sweetalert2';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
-// import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
     const {createUser} = useContext(AuthContext);
+    const navigate = useNavigate();
     const handleRegister = event =>{
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
+        // const photo = form.photo.value;
         const password = form.password.value;
-        console.log(name, email, password);
+        console.log(name,email, password);
         createUser(email, password)
         .then(result => {
             const user = result.user;
@@ -30,6 +32,7 @@ const SignUp = () => {
              )
 
             }
+            navigate('/');
         })
         
         .catch(error=>console.log(error));
@@ -39,26 +42,32 @@ const SignUp = () => {
         <div className="hero min-h-1/2 bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse">
                 
-                <div className="card shrink-0 w-full max-w-md h-[700px] shadow-2xl bg-base-100 m-20">
+                <div className="card shrink-0 w-full max-w-md h-[800px] shadow-2xl bg-base-100 m-20">
                     <h2 className='text-center text-4xl font-bold mt-10'>Sign Up</h2>
                     <form onSubmit={handleRegister} className="card-body">
                         <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Name</span>
-                        </label>
-                        <input type="text" name='name' placeholder="Your Name" className="input input-bordered" required />
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input type="text" name='name' placeholder="Your Name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Email</span>
-                        </label>
-                        <input type="email" name='email' placeholder="email" className="input input-bordered" required />
+                            <label className="label">
+                                <span className="label-text">Email</span>
+                            </label>
+                            <input type="email" name='email' placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Password</span>
-                        </label>
-                        <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                            <label className="label">
+                                <span className="label-text">Photo URL</span>
+                            </label>
+                            <input type="text" name='photo' placeholder="enter your photo url" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Password</span>
+                            </label>
+                            <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
