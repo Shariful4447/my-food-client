@@ -6,12 +6,26 @@ import GoogleIcon from '@mui/icons-material/Google';
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
 import { Link } from 'react-router-dom';
 import login from '../../assets/others/authentication2.png'
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const Login = () => {
+    const captchaRef = useRef(null);
+    const[disabled, setDisabled] = useState(true);
+
     useEffect( ()=>{
         loadCaptchaEnginge(6);
     },[])
+    const handleValidateCaptcha=() => {
+        const user_captcha_value = captchaRef.current.value;
+        console.log(user_captcha_value);
+        if (validateCaptcha(user_captcha_value)==true) {
+            setDisabled(false);
+        }
+   
+        else {
+            alert('Captcha Does Not Match');
+        }
+    }
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -31,7 +45,7 @@ const Login = () => {
             <div className="hero min-h-1/2 bg-base-200">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     
-                    <div className="card shrink-0 w-full max-w-md h-[700px] shadow-2xl bg-base-100 m-20">
+                    <div className="card shrink-0 w-full max-w-md h-[750px] shadow-2xl bg-base-100 m-20">
                         <h2 className='text-center text-4xl font-bold mt-10'>Login Here</h2>
                         <form onSubmit={handleLogin}  className="card-body">
                             <div className="form-control">
@@ -55,10 +69,11 @@ const Login = () => {
                                     <LoadCanvasTemplate />
                                     </span>
                                 </label>
-                                <input type="password" name="password" placeholder="please put the text you see in the captcha" className="input input-bordered" required />
+                                <input type="text" ref={captchaRef} name="captcha" placeholder="please put the text you see in the captcha" className="input input-bordered" required />
+                                <button onClick={handleValidateCaptcha} className="btn btn-outline btn-xs mt-2">Validate</button>
                             </div>
                             <div className="form-control mt-6">
-                            <button className="btn btn-primary">Login</button>
+                            <button disabled={disabled} className="btn btn-primary">Login</button>
                             </div>
 
                             <h2 className='text-center text-2xl mt-5'>Or Sign In With</h2>
