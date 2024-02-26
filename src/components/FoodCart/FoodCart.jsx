@@ -1,17 +1,19 @@
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router-dom";
-import axios from "axios";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
 const FoodCart = ({item}) => {
-    const {name, image, price, recipe, _id}=item;
+    const {name, image, price, recipe, _id} = item;
     const { user } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
+    const axiosSecure = useAxiosSecure();
+
     const handleAddToCart = ()=>{
         
-        if(user && user?.email){
+        if(user && user.email){
             //send item to the database
             const cartItem = {
                 menuId: _id,
@@ -20,17 +22,19 @@ const FoodCart = ({item}) => {
                 image,
                 price
             }
-            axios.post('http://localhost:8000/carts', cartItem)
+            axiosSecure.post('/carts', cartItem)
             .then(res =>{
-                console.log(res.data);
-                if(res.data.insertedId){
+                console.log(cartItem);
+                if (res.data.insertedId) {
                     Swal.fire({
                         position: "top-end",
                         icon: "success",
-                        title: "Item Added Successfully",
+                        title: `${name} added to your cart`,
                         showConfirmButton: false,
                         timer: 1500
-                      });
+                    });
+                    // refetch cart to update the cart items count
+                    
                 }
             })
 
