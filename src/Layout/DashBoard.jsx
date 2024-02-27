@@ -45,7 +45,32 @@ const DashBoard = () => {
                             my booking
                         </NavLink>
                     </li>
-                    
+
+                    <div className="divider"></div>
+                    <li className="bg-blue-500 text-2xl mb-2 uppercase">
+                        <NavLink to='/'>
+                            <MdOutlineShoppingCart />
+                            home
+                        </NavLink>
+                    </li>
+                    <li className="bg-blue-500 text-2xl mb-2 uppercase">
+                        <NavLink to='/menu'>
+                            <MdOutlineShoppingCart />
+                            menu
+                        </NavLink>
+                    </li>
+                    <li className="bg-blue-500 text-2xl mb-2 uppercase">
+                        <NavLink to='/shop/salad'>
+                            <MdOutlineShoppingCart />
+                            shop
+                        </NavLink>
+                    </li>
+                    <li className="bg-blue-500 text-2xl mb-2 uppercase">
+                        <NavLink to='/dashboard/cart'>
+                            <MdOutlineShoppingCart />
+                            contact
+                        </NavLink>
+                    </li>
                 </ul>
             </div>
             {/* dashBoard mainBody */}
