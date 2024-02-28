@@ -19,14 +19,14 @@ const Cart = () => {
                 
                 <h2 className="text-4xl">Total Item : {cart.length}</h2>
                 <h2 className="text-4xl"> Total Price: {totalPrice} </h2>
-                <button className="btn btn-outline">Pay Now</button>
+                <button className="btn btn-outline bg-slate-400">Pay Now</button>
                 
             </div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto border rounded-xl border-radius-2">
                 <table className="table">
                     {/* head */}
                     <thead>
-                    <tr>
+                    <tr className="bg-slate-200">
                         <th>
                         <label>
                             <input type="checkbox" className="checkbox" />
