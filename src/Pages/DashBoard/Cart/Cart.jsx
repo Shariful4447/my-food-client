@@ -41,10 +41,10 @@ const Cart = () => {
                     <tbody>
                     {/* row 1 */}
                     {
-                        cart.map(item=> <tr key={item._id}>
+                        cart.map((item, index)=> <tr key={item._id}>
                             <th>
                             <label>
-                                <input type="checkbox" className="checkbox" />
+                                {index}
                             </label>
                             </th>
                             <td>
