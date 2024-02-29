@@ -8,8 +8,10 @@ import { Link, useNavigate} from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from "sweetalert2";
+import useAxiosPublic from '../../hooks/useAxiosPublic';
 
 const SignUp = () => {
+    const axiosPublic = useAxiosPublic();
     const {createUser} = useContext(AuthContext);
     const navigate = useNavigate();
     const handleRegister = event =>{
@@ -22,17 +24,28 @@ const SignUp = () => {
         console.log(name,email, password);
         createUser(email, password)
         .then(result => {
-            const user = result.user;
-            console.log(user);
-            if(user.uid){
-                Swal.fire(
-                    "Success!",
-                    "User Created Success",
-                    "success"
-             )
+            const userInfo = {
+                name: name,
+                email: email,
+
 
             }
-            navigate('/');
+            axiosPublic.post('/users', userInfo)
+            .then(res=>{
+                if(res.insertedId) {
+                    console.log('user added successfully');
+                    Swal.fire(
+                        "Success!",
+                        "User Created Success",
+                        "success"
+                 )
+    
+                }
+                navigate('/');
+            })
+            const user = result.user;
+            console.log(user);
+            
         })
         
         .catch(error=>console.log(error));

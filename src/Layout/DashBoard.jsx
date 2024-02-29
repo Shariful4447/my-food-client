@@ -1,9 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { IoHome } from "react-icons/io5";
+import useCart from "../hooks/useCart";
 
 
 const DashBoard = () => {
+    const [cart] = useCart();
     return (
         <div className="flex">
             {/* dashBoardSidebar */}
@@ -18,7 +20,7 @@ const DashBoard = () => {
                     <li className="bg-blue-500 text-2xl mb-2 uppercase">
                         <NavLink to='/dashboard/cart'>
                             <MdOutlineShoppingCart />
-                            My Cart
+                            My Cart({cart.length})
                         </NavLink>
                     </li>
                     <li className="bg-blue-500 text-2xl mb-2 uppercase">
