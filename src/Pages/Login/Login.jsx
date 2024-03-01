@@ -1,14 +1,12 @@
 
-import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import GoogleIcon from '@mui/icons-material/Google';
+
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../../assets/others/authentication2.png'
 import { useContext, useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../components/SocialLogin/SocialLogin';
 
 const Login = () => {
     const captchaRef = useRef(null);
@@ -91,12 +89,8 @@ const Login = () => {
                             </div>
 
                             <h2 className='text-center text-2xl mt-5'>Or Sign In With</h2>
-                            <div className='flex gap-5 mx-auto'>
-                                <button className="btn btn-circle btn-outline "> <FacebookRoundedIcon/></button>
-                                <button className="btn btn-circle btn-outline "> <InstagramIcon/></button>
-                                <button className="btn btn-circle btn-outline "> <TwitterIcon/></button>
-                                <button className="btn btn-circle btn-outline "> <GoogleIcon /></button>
-                            </div>
+                            <SocialLogin></SocialLogin>
+                            
                             <p className='text-center mt-2'>Have an account? <span className='text-red-500'> <Link to='/register'>Sign Up </Link> </span></p>
                         </form>
                         
