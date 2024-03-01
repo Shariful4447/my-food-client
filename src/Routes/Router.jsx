@@ -13,6 +13,7 @@ import Secret from "../Pages/Shared/Secret/Secret";
 import PrivateRoutes from "./PrivateRoutes";
 import DashBoard from "../Layout/DashBoard";
 import Cart from "../Pages/DashBoard/Cart/Cart";
+import AllUsers from "../Pages/DashBoard/AllUsers/AllUsers";
 
 export const Router = createBrowserRouter([
     {
@@ -53,6 +54,13 @@ export const Router = createBrowserRouter([
             path: "cart",
             element: <Cart></Cart>,
             },
+
+            // admi Routes
+            {
+              path: "users",
+              element: <AllUsers></AllUsers>,
+              },
+
         ]
     },
    ]);

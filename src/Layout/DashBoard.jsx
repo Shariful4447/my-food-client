@@ -6,47 +6,82 @@ import useCart from "../hooks/useCart";
 
 const DashBoard = () => {
     const [cart] = useCart();
+    //toddo : get is admin value from database
+    const isAdmin = true;
     return (
         <div className="flex">
             {/* dashBoardSidebar */}
             <div className="w-64 min-h-screen bg-orange-400">
                 <ul className="menu p-4">
-                     <li className="bg-blue-500 text-2xl mb-2">
-                        <NavLink to='/dashboard/cart'>
-                            <IoHome/>
-                            User Home
-                        </NavLink>
-                    </li>
-                    <li className="bg-blue-500 text-2xl mb-2 uppercase">
-                        <NavLink to='/dashboard/cart'>
-                            <MdOutlineShoppingCart />
-                            My Cart({cart.length})
-                        </NavLink>
-                    </li>
-                    <li className="bg-blue-500 text-2xl mb-2 uppercase">
-                        <NavLink to='/dashboard/cart'>
-                            <MdOutlineShoppingCart />
-                            payment
-                        </NavLink>
-                    </li>
-                    <li className="bg-blue-500 text-2xl mb-2 uppercase">
-                        <NavLink to='/dashboard/cart'>
-                            <MdOutlineShoppingCart />
-                            Reservation
-                        </NavLink>
-                    </li>
-                    <li className="bg-blue-500 text-2xl mb-2 uppercase">
-                        <NavLink to='/dashboard/cart'>
-                            <MdOutlineShoppingCart />
-                            add review
-                        </NavLink>
-                    </li>
-                    <li className="bg-blue-500 text-2xl mb-2 uppercase">
-                        <NavLink to='/dashboard/cart'>
-                            <MdOutlineShoppingCart />
-                            my booking
-                        </NavLink>
-                    </li>
+                     {
+                        isAdmin ? 
+                        <>
+                            <li className="bg-blue-500 text-2xl mb-2">
+                                <NavLink to='/dashboard/adminHome'>
+                                    <IoHome/>
+                                    Admin Home
+                                </NavLink>
+                            </li>
+                            <li className="bg-blue-500 text-2xl mb-2 uppercase">
+                                <NavLink to='/dashboard/addItems'>
+                                    <MdOutlineShoppingCart />
+                                    Add Items
+                                </NavLink>
+                            </li>
+                            <li className="bg-blue-500 text-2xl mb-2 uppercase">
+                                <NavLink to='/dashboard/manageBookings'>
+                                    <MdOutlineShoppingCart />
+                                    Manage Bookings
+                                </NavLink>
+                            </li>
+                            <li className="bg-blue-500 text-2xl mb-2 uppercase">
+                                <NavLink to='/dashboard/users'>
+                                    <MdOutlineShoppingCart />
+                                    All Users
+                                </NavLink>
+                            </li>
+
+                        </> 
+                        : 
+                        <>
+                            <li className="bg-blue-500 text-2xl mb-2">
+                                <NavLink to='/dashboard/cart'>
+                                    <IoHome/>
+                                    User Home
+                                </NavLink>
+                            </li>
+                            <li className="bg-blue-500 text-2xl mb-2 uppercase">
+                                <NavLink to='/dashboard/cart'>
+                                    <MdOutlineShoppingCart />
+                                    My Cart({cart.length})
+                                </NavLink>
+                            </li>
+                            <li className="bg-blue-500 text-2xl mb-2 uppercase">
+                                <NavLink to='/dashboard/cart'>
+                                    <MdOutlineShoppingCart />
+                                    payment
+                                </NavLink>
+                            </li>
+                            <li className="bg-blue-500 text-2xl mb-2 uppercase">
+                                <NavLink to='/dashboard/cart'>
+                                    <MdOutlineShoppingCart />
+                                    Reservation
+                                </NavLink>
+                            </li>
+                            <li className="bg-blue-500 text-2xl mb-2 uppercase">
+                                <NavLink to='/dashboard/cart'>
+                                    <MdOutlineShoppingCart />
+                                    add review
+                                </NavLink>
+                            </li>
+                            <li className="bg-blue-500 text-2xl mb-2 uppercase">
+                                <NavLink to='/dashboard/cart'>
+                                    <MdOutlineShoppingCart />
+                                    my booking
+                                </NavLink>
+                            </li>
+                        </>
+                     }
 
                     <div className="divider"></div>
                     <li className="bg-blue-500 text-2xl mb-2 uppercase">
