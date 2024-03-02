@@ -35,6 +35,7 @@ const useAxiosSecure = () => {
         return Promise.reject(error);
       });
     return axiosSecure;
+    //to do: need to fix the issue with token handling
 };
 
 export default useAxiosSecure;
