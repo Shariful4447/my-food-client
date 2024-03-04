@@ -2,12 +2,14 @@ import { NavLink, Outlet } from "react-router-dom";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { IoHome } from "react-icons/io5";
 import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/useAdmin";
 
 
 const DashBoard = () => {
     const [cart] = useCart();
     //toddo : get is admin value from database
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
+    
     return (
         <div className="flex">
             {/* dashBoardSidebar */}
