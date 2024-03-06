@@ -14,7 +14,7 @@ const AddItems = () => {
             ></SectionTitle>
             <div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <input {...register("name")} />
+                    
                     
                     <div className="form-control w-full">
                         <label className="label">
@@ -24,7 +24,7 @@ const AddItems = () => {
                         <input 
                             type="text" 
                             placeholder="Recipe name" 
-                            {...register('name')} 
+                            {...register('name', {required: true})} 
                             className="input input-bordered w-full" />
                     </div>
                     
@@ -34,7 +34,7 @@ const AddItems = () => {
                                 <span className="label-text">Category</span>
                                 
                             </label>
-                            <select {...register("category")} className="select select-bordered w-full">
+                            <select {...register("category", {required: true})} className="select select-bordered w-full">
                                 <option disabled selected>Select a Category</option>
                                 <option value="salad">Salad</option>
                                 <option value="soup">Soup</option>
@@ -48,7 +48,7 @@ const AddItems = () => {
                                 <span className="label-text">Price</span>
                                 
                             </label>
-                            <input type="text" placeholder="Price" className="input input-bordered w-full" />
+                            <input type="text" {...register("price", {required: true})} placeholder="Price" className="input input-bordered w-full" />
                         </div>
                     </div>
                     <label className="form-control w-full">
@@ -56,10 +56,10 @@ const AddItems = () => {
                             <span className="label-text">Recipe Details</span>
             
                         </div>
-                        <input type="text" placeholder="Recipe Details*" className="input input-bordered h-24 w-full" />
+                        <input type="text" {...register("recipe", {required: true})} placeholder="Recipe Details*" className="input input-bordered h-24 w-full" />
 
                     </label>
-                    <input type="file" className="file-input file-input-ghost w-full max-w-xs my-4 bg-slate-400"/> <br />
+                    <input {...register("image", {required: true})} type="file" className="file-input file-input-ghost w-full max-w-xs my-4 bg-slate-400"/> <br />
                     <button className="btn btn-outline btn-accent w-72 my-4 text-center mx-auto">Submit</button>
                 </form>
             </div>
