@@ -31,6 +31,12 @@ const DashBoard = () => {
                                 </NavLink>
                             </li>
                             <li className="bg-blue-500 text-2xl mb-2 uppercase">
+                                <NavLink to='/dashboard/manageItems'>
+                                    <MdOutlineShoppingCart />
+                                    Manage Items
+                                </NavLink>
+                            </li>
+                            <li className="bg-blue-500 text-2xl mb-2 uppercase">
                                 <NavLink to='/dashboard/manageBookings'>
                                     <MdOutlineShoppingCart />
                                     Manage Bookings
