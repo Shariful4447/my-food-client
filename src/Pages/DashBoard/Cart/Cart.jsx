@@ -3,6 +3,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useCart from "../../../hooks/useCart";
 import { MdOutlineDelete } from "react-icons/md";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 
 const Cart = () => {
@@ -49,7 +50,9 @@ const Cart = () => {
                 
                 <h2 className="text-4xl">Total Item : {cart.length}</h2>
                 <h2 className="text-4xl"> Total Price: {totalPrice} </h2>
-                <button className="btn btn-outline bg-slate-400">Pay Now</button>
+                <Link to='/dashboard/payment'>
+                    <button className="btn btn-outline bg-slate-400">Pay Now</button>
+                </Link>
                 
             </div>
             <div className="overflow-x-auto border rounded-xl border-radius-2">
