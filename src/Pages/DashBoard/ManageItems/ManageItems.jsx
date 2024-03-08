@@ -3,6 +3,7 @@ import { FaRegEdit } from "react-icons/fa";
 import useMenu from "../../../hooks/useMenu";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 
 const ManageItems = () => {
@@ -90,8 +91,10 @@ const ManageItems = () => {
                             </td>
                             <td>{item.price}</td>
                             <th>
-                                <button className="btn btn-circle bg-yellow-500 btn-outline">
-                                <FaRegEdit></FaRegEdit></button>
+                                <Link to={`/dashboard/updateItem/${item._id}`}>
+                                    <button className="btn btn-circle bg-yellow-500 btn-outline">
+                                    <FaRegEdit></FaRegEdit></button>
+                                </Link>
                             </th>
                             <th>
                                 <button onClick={()=>handleDeleteItem(item)} className="btn btn-circle bg-red-500 btn-outline">
