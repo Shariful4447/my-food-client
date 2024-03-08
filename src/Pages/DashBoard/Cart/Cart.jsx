@@ -50,9 +50,12 @@ const Cart = () => {
                 
                 <h2 className="text-4xl">Total Item : {cart.length}</h2>
                 <h2 className="text-4xl"> Total Price: {totalPrice} </h2>
-                <Link to='/dashboard/payment'>
+                {
+                    cart.length ? <Link to='/dashboard/payment'>
                     <button className="btn btn-outline bg-slate-400">Pay Now</button>
-                </Link>
+                </Link> :
+                <button disabled className="btn btn-outline bg-slate-400">Pay Now</button>
+                }
                 
             </div>
             <div className="overflow-x-auto border rounded-xl border-radius-2">
