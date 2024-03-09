@@ -66,6 +66,20 @@ const ChekoutForm = () => {
             console.log('payment intent', paymentIntent);
             if(paymentIntent.status === 'succeeded' ){
                 setTransactionId(paymentIntent.id);
+
+                // now save the payment information to database
+                const payment = {
+                    email: user?.email,
+                    price: totalPrice,
+                    transactionId: paymentIntent.id,
+                    date: new Date(), //date converter to utc
+                    cartId: cart.map(item => item._id),
+                    menuItemId: cart.map(item => item.menuId),
+                    status:'panding'
+                }
+                const res = await axiosSecure.post('/payments', payment)
+                console.log(res);
+
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
