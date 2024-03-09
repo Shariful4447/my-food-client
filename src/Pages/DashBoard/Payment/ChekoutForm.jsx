@@ -16,15 +16,17 @@ const ChekoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
     const axiosSecure = useAxiosSecure();
-    const [cart] = useCart();
+    const [cart, refetch] = useCart();
     const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
     useEffect(() => {
-        axiosSecure.post('/create-payment-intent', {price: totalPrice})
-        .then(res => {
-            console.log(res.data.clientSecret);
-            setClientSecret(res.data.clientSecret);
-        })
+        if(totalPrice > 0){
+            axiosSecure.post('/create-payment-intent', {price: totalPrice})
+            .then(res => {
+                console.log(res.data.clientSecret);
+                setClientSecret(res.data.clientSecret);
+            })
+        }
     },[axiosSecure, totalPrice])
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -79,14 +81,18 @@ const ChekoutForm = () => {
                 }
                 const res = await axiosSecure.post('/payments', payment)
                 console.log(res);
+                refetch();
+                if(res.data.paymentResult.insertedId){
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Payment Complete",
+                        showConfirmButton: false,
+                        timer: 1500
+                      });
+                }
 
-                Swal.fire({
-                    position: "top-end",
-                    icon: "success",
-                    title: "Payment Complete",
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
+             
             }
         }
 

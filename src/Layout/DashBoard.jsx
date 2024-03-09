@@ -71,9 +71,9 @@ const DashBoard = () => {
                                 </NavLink>
                             </li>
                             <li className="bg-blue-500 text-2xl mb-2 uppercase">
-                                <NavLink to='/dashboard/cart'>
+                                <NavLink to='/dashboard/paymentHistory'>
                                     <MdOutlineShoppingCart />
-                                    Reservation
+                                    Payment History
                                 </NavLink>
                             </li>
                             <li className="bg-blue-500 text-2xl mb-2 uppercase">
