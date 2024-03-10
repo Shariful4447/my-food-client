@@ -53,7 +53,7 @@ const DashBoard = () => {
                         : 
                         <>
                             <li className="bg-blue-500 text-2xl mb-2">
-                                <NavLink to='/dashboard/cart'>
+                                <NavLink to='/dashboard/userHome'>
                                     <IoHome/>
                                     User Home
                                 </NavLink>
