@@ -22,6 +22,7 @@ import Payment from "../Pages/DashBoard/Payment/Payment";
 import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
 import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
 import UserHome from "../Pages/DashBoard/UserHome/UserHome";
+import ManageBooking from "../Pages/DashBoard/ManageBooking/ManageBooking";
 
 export const Router = createBrowserRouter([
     {
@@ -92,6 +93,10 @@ export const Router = createBrowserRouter([
             {
               path: "manageItems",
               element: <AdminRoute><ManageItems></ManageItems></AdminRoute>,
+            },
+            {
+              path: "manageBookings",
+              element: <AdminRoute><ManageBooking></ManageBooking></AdminRoute>,
             },
             {
               path: "updateItem/:id",
