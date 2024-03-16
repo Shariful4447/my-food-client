@@ -84,6 +84,28 @@ const Booking = () => {
                     <button className="btn btn-outline btn-accent w-72 my-4 text-center mx-auto">Submit</button>
                 </form>
             </div>
+
+            <SectionTitle
+            heading='OUR LOCATION'
+            subHeading='---Visit Us---'
+            >
+
+            </SectionTitle>
+            <div>
+                <div>
+                    <p>Phone</p>
+                    <p>+38 (012) 34 56 789</p>
+                </div>
+                <div>
+                    <p>ADDRESS</p>
+                    <p>+38 (012) 34 56 789</p>
+                </div>
+                <div>
+                    <p>WORKING HOURS</p>
+                    <p>Mon - Fri: 08:00 - 22:00 <br />
+                        Sat - Sun: 10:00 - 23:00</p>
+                </div>
+            </div>
         </div>
     );
 };
