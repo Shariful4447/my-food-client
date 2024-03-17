@@ -1,5 +1,11 @@
 import { useForm } from "react-hook-form";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import { IoCallSharp } from "react-icons/io5";
+import { CiLocationOn } from "react-icons/ci";
+import { IoIosTime } from "react-icons/io";
+
+
+
 
 
 const Booking = () => {
@@ -91,16 +97,23 @@ const Booking = () => {
             >
 
             </SectionTitle>
-            <div>
+            <div className="grid grid-cols-3 place-items-center bg-yellow-400 m-5 h-48">
                 <div>
+                    <div className="ml-16">
+                        <p ><IoCallSharp className="text-2xl"></IoCallSharp></p>
+                    </div>
+                    <div className="text-center">
                     <p>Phone</p>
                     <p>+38 (012) 34 56 789</p>
+                    </div>
                 </div>
-                <div>
+                <div className="text-center">
+                    <p className="ml-16 text-2xl"><CiLocationOn></CiLocationOn></p>
                     <p>ADDRESS</p>
                     <p>+38 (012) 34 56 789</p>
                 </div>
-                <div>
+                <div className="text-center">
+                    <p className="ml-16 text-2xl"><IoIosTime></IoIosTime></p>
                     <p>WORKING HOURS</p>
                     <p>Mon - Fri: 08:00 - 22:00 <br />
                         Sat - Sun: 10:00 - 23:00</p>
