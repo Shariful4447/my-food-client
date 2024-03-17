@@ -1,7 +1,10 @@
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import useBooking from "../../../hooks/useBooking";
 
 
 const ManageBooking = () => {
+    const [bookings, refetch] = useBooking();
+   
     return (
         <div>
             <SectionTitle
@@ -25,45 +28,22 @@ const ManageBooking = () => {
                         </tr>
                         </thead>
                         <tbody>
-                        {/* row 1 */}
-                        <tr>
-                            <th>@gmail.com</th>
-                            <td>+0000000000000</td>
-                            <td>16-03-2024</td>
-                            <td>08:16</td>
-                            <td>Pending</td>
-                            <td>
-                                <button className="btn btn-circle btn-outline">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                                </button>
-                            </td>
-                        </tr>
-                        {/* row 2 */}
-                        <tr>
-                            <th>@gmail.com</th>
-                            <td>+0000000000000</td>
-                            <td>16-03-2024</td>
-                            <td>08:16</td>
-                            <td>Done</td>
-                            <td>
-                                <button className="btn btn-circle btn-outline">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                                </button>
-                            </td>
-                        </tr>
-                        {/* row 3 */}
-                        <tr>
-                            <th>@gmail.com</th>
-                            <td>+0000000000000</td>
-                            <td>16-03-2024</td>
-                            <td>08:16</td>
-                            <td>Pending</td>
-                            <td>
-                                <button className="btn btn-circle btn-outline">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                                </button>
-                            </td>
-                        </tr>
+                        {
+                            bookings.map(booking =>  
+                            <tr key={booking._id}>
+                                <th>{booking.email}</th>
+                                <td>{booking.phone}</td>
+                                <td>{booking.date}</td>
+                                <td>{booking.time}</td>
+                                <td>Pending</td>
+                                <td>
+                                    <button className="btn btn-circle btn-outline">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                                    </button>
+                                </td>
+                            </tr> )
+                        }
+                       
                         </tbody>
                     </table>
                 </div>
