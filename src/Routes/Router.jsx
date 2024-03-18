@@ -24,6 +24,7 @@ import AdminHome from "../Pages/DashBoard/AdminHome/AdminHome";
 import UserHome from "../Pages/DashBoard/UserHome/UserHome";
 import ManageBooking from "../Pages/DashBoard/ManageBooking/ManageBooking";
 import Booking from "../Pages/DashBoard/Booking/Booking";
+import BookingHistory from "../Pages/DashBoard/Booking/BookingHistory/BookingHistory";
 
 export const Router = createBrowserRouter([
     {
@@ -80,6 +81,10 @@ export const Router = createBrowserRouter([
             {
               path: "booking",
               element: <Booking></Booking>,
+            },
+            {
+              path: "bookingHistory",
+              element: <BookingHistory></BookingHistory>,
             },
 
             // admin only Routes

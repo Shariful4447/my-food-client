@@ -3,7 +3,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { IoCallSharp } from "react-icons/io5";
 import { CiLocationOn } from "react-icons/ci";
 import { IoIosTime } from "react-icons/io";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
+
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
@@ -44,7 +44,7 @@ const Booking = () => {
             }
 
         
-        console.log(res.data);
+        
     }
     return (
         <div>
