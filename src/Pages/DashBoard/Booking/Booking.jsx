@@ -26,6 +26,7 @@ const Booking = () => {
                 email: data.email,
                 table: data.table,
                 time: data.time,
+                status: 'pending',
             }
             
             
@@ -36,7 +37,7 @@ const Booking = () => {
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
-                    title: `${data.name} has been saved to the menu`,
+                    title: `${data.name} booked successfully`,
                     showConfirmButton: false,
                     timer: 1500
                   });
