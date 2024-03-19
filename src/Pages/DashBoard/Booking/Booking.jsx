@@ -6,6 +6,7 @@ import { IoIosTime } from "react-icons/io";
 
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAuth from "../../../hooks/useAuth";
 
 
 
@@ -13,6 +14,7 @@ import Swal from "sweetalert2";
 
 const Booking = () => {
     const { register, handleSubmit } = useForm();
+    const {user} = useAuth();
     const axiosSecure = useAxiosSecure();
     const onSubmit = async (data) =>{
         console.log(data);
@@ -23,7 +25,7 @@ const Booking = () => {
                 name: data.name,
                 date: data.date,
                 phone: data.phone,
-                email: data.email,
+                email: user.email,
                 table: data.table,
                 time: data.time,
                 status: 'pending',
@@ -102,7 +104,7 @@ const Booking = () => {
                                 <span className="label-text">Email</span>
                                 
                             </label>
-                            <input type="text" {...register("email", {required: true})} placeholder="Email" className="input input-bordered w-full" />
+                            <input type="text" {...register("email", {required: false})} placeholder="Email" className="input input-bordered w-full" />
                         </div>
                         <div className="form-control w-full my-6">
                             <label className="label">
