@@ -33,6 +33,7 @@ const BookingHistory = () => {
                         </th>
                         <th>TABLE IMAGE</th>
                         <th>Booking Name</th>
+                        <th>Booker Email</th>
                         <th>Phone</th>
                         <th>Date</th>
                         <th>Time</th>
@@ -59,6 +60,7 @@ const BookingHistory = () => {
                             </div>
                             </td>
                             <td>{booking.name}</td>
+                            <td>{booking.email}</td>
                             <td>{booking.phone}</td>
                             <td>{booking.date}</td>
                             <td>{booking.time}</td>

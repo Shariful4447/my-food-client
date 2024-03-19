@@ -104,14 +104,14 @@ const Booking = () => {
                                 <span className="label-text">Email</span>
                                 
                             </label>
-                            <input type="text" {...register("email", {required: false})} placeholder="Email" className="input input-bordered w-full" />
+                            <input type="text" {...register("email", {required: true})} placeholder={user.email} className="input input-bordered w-full" />
                         </div>
                         <div className="form-control w-full my-6">
                             <label className="label">
                                 <span className="label-text">Name</span>
                                 
                             </label>
-                            <input type="text" {...register("name", {required: true})} placeholder="Name" className="input input-bordered w-full" />
+                            <input type="text" {...register("name", {required: true})} placeholder='Name' className="input input-bordered w-full" />
                         </div>
                         <div className="form-control w-full my-6">
                             <label className="label">
