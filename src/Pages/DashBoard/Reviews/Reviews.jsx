@@ -2,13 +2,50 @@ import { useForm } from "react-hook-form";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const Reviews = () => {
-    const axiosPublic = useAxiosPublic();
-    const { register, formState: { errors } } = useForm();
+    // const axiosPublic = useAxiosPublic();
+    const { register, handleSubmit } = useForm();
 
-    const navigate = useNavigate();
+
+    const onSubmit = async (data) =>{
+        console.log(data);
+  
+
+        // const res = await axiosPublic.post( {
+        //     headers: {
+        //         'content-type' : 'multipart/form-data'
+        //     }
+        // });
+        // if(res.data.success) {
+        //     //now send this to the database
+        //     const menuItem = {
+        //         name: data.name,
+        //         category: data.category,
+        //         price: data.price,
+        //         recipe: data.recipe,
+        //         image : res.data.data.display_url
+        //     }
+        //     //send with secure
+        //     // console.log('with imageurl', menuItem);
+        //     // const menuRes = await axiosSecure.post('/menu', menuItem)
+        //     // console.log(menuRes);
+        //     // if(menuRes.data.insertedId){
+                
+        //     //     Swal.fire({
+        //     //         position: "top-end",
+        //     //         icon: "success",
+        //     //         title: "Reviews has been saved",
+        //     //         showConfirmButton: false,
+        //     //         timer: 1500
+        //     //       });
+        //     }
+
+        // }
+        // console.log(res.data);
+    } 
     return (
         <div>
             <SectionTitle
@@ -20,7 +57,7 @@ const Reviews = () => {
             
             <div className="m-5 p-5 bg-slate-200 border rounded-lg">
                 
-                <form className="p-5">
+                <form onSubmit={handleSubmit(onSubmit)} className="p-5">
                     
                     
                     <div className="form-control w-full">
@@ -31,7 +68,7 @@ const Reviews = () => {
                         <input 
                             type="text" 
                             placeholder="Recipe name" 
-                            {...register('name', {required: true})} 
+                            {...register('recipe', {required: true})} 
                             className="input input-bordered w-full" />
                     </div>
                     
@@ -42,7 +79,7 @@ const Reviews = () => {
                                 <span className="label-text">Do you have any suggestion for us?</span>
                                 
                             </label>
-                            <input type="text" {...register("price", {required: true})} placeholder="Recipe name" className="input input-bordered w-full" />
+                            <input type="text" {...register("suggestion", {required: true})} placeholder="Recipe name" className="input input-bordered w-full" />
                         </div>
                     </div>
                     <label className="form-control w-full">
@@ -50,7 +87,7 @@ const Reviews = () => {
                             <span className="label-text">Kindly express your care in a short way.</span>
             
                         </div>
-                        <input type="text" {...register("recipe", {required: true})} placeholder="Recipe Details*" className="input input-bordered h-24 w-full" />
+                        <input type="text" {...register("complain", {required: true})} placeholder="Recipe Details*" className="input input-bordered h-24 w-full" />
 
                     </label>
                     
